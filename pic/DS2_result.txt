@@ -1,0 +1,29 @@
+Loss:
+DefTeamScore    26904
+PosTeamScore    26904
+dtype: int64
+
+Max:
+PosTeamScore    61.0
+DefTeamScore    61.0
+dtype: float64
+
+Min:
+PosTeamScore    0.0
+DefTeamScore    0.0
+dtype: float64
+
+Mean: 
+PosTeamScore    10.201424
+DefTeamScore    11.414484
+dtype: float64
+
+Median:
+PosTeamScore     7.0
+DefTeamScore    10.0
+dtype: float64)
+
+Quantilty:
+              0.25  0.50  0.75
+PosTeamScore   2.0   7.0  16.0
+DefTeamScore   3.0  10.0  17.0
