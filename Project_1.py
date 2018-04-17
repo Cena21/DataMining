@@ -16,14 +16,6 @@ import pandas as pd
 with open('Building_Permits.csv','r') as csvfile:
 	reader = [each for each in csv.DictReader(csvfile)]#将读取内容转存到列表
 
-#-------- 数据集 1 ------------------------------------------------
-
-
-
-
-#--------------------------------------------------------
-
-
 #-------- 数据集 2 ------------------------------------------------
 
 	PerNum = [row['Permit Number'] for row in reader]
@@ -91,6 +83,14 @@ def drawHist(data,title):
 	plt.title(title)
 	plt.show()
 
+#缺失值填充
+def fillNum(data1,data2):
+	data = data1
+	for i in range(len(data1)):
+		if data[i] ==' ':
+			data[i] = data2[i]
+	return data
+
 if __name__ == '__main__':
 	#---------------------- 标称属性 ------------------------------
 	#print("\nPermit Type:")
@@ -129,15 +129,19 @@ if __name__ == '__main__':
 	#print("\n:Record ID")
 	CountNum(ReID)
 	#------------------- 数值属性 --------------------------------
-	#print("Estimated Cost")
-	#NumAnalysis(EsitCost,"Estimated Cost")
-	#drawHist(EsitCost,"Estimated Cost")
+	print("Estimated Cost")
+	NumAnalysis(EsitCost,"Estimated Cost")
+	drawHist(EsitCost,"Estimated Cost")
 	
-	#print("Revised Cost:")
-	#NumAnalysis(RevCost,"Revised Cost")
-	#drawHist(RevCost,"Revised Cost")
+	print("Revised Cost:")
+	NumAnalysis(RevCost,"Revised Cost")
+	drawHist(RevCost,"Revised Cost")
 	
-	#print("Proposed Units:")
-	#NumAnalysis(PropUnits,"Proposed Units") 
+	print("Proposed Units:")
+	NumAnalysis(PropUnits,"Proposed Units") 
+
+	fill_RecCost=fillNum(RevCost,EsitCost)
+	print("Revised Cost_相关关系:")
+	drawHist(fill_RecCost,"Revised Cost_fill")
 	
 	
